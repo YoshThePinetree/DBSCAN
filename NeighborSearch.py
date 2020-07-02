@@ -4,15 +4,13 @@ import math
 
 def Search(D, V, n, r):
     for i in range(n):
-        count = 0
         for j in range(n):
-            if (D[i,j] <= r) & (i != j):
-                count += 1
+            if D[i, j] <= r:
                 V[i,j] = 1
     return V
 
 
-def Core(V, U, n, minPts):
+def Core(V, n, minPts):
     corelist = []   # list for core points
     clstset = []    # setlist for clusters
     check = np.zeros(n)
@@ -67,7 +65,7 @@ def Core(V, U, n, minPts):
             break
         listnum1 = listnum
 
-    return clstset
+    return clstset, corelist
 
 def tup2list(t):
     tmp = []
